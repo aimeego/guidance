@@ -1,14 +1,12 @@
-# Nebulas 101 - 04 Smart Contract Storage
+# 101 - 04 Smart Contract Storage
 
-[YouTube Tutorial](https://www.youtube.com/watch?v=Ofs4AyRaSlw)
+Earlier we covered how to write smart contracts and how to deploy and invoke smart contracts in the Carbon.
 
-Earlier we covered how to write smart contracts and how to deploy and invoke smart contracts in the Nebulas.
-
-Now we introduce in detail the storage of the smart contract. Nebulas smart contracts provide on-chain data storage capabilities. Similar to the traditional key-value storage system \(eg: redis\), smart contracts can be stored on the Nebulas by paying with \(gas\).
+Now we introduce in detail the storage of the smart contract. Carbon smart contracts provide on-chain data storage capabilities. Similar to the traditional key-value storage system \(eg: redis\), smart contracts can be stored on the Carbon by paying with \(gas\).
 
 ## LocalContractStorage
 
-Nebulas' Smart Contract environment has built-in storage object `LocalContractStorage`, which can store numbers, strings, and JavaScript objects. The stored data can only be used in smart contracts. Other contracts can not read the stored data.
+Carbon' Smart Contract environment has built-in storage object `LocalContractStorage`, which can store numbers, strings, and JavaScript objects. The stored data can only be used in smart contracts. Other contracts can not read the stored data.
 
 ### Basics
 
@@ -256,5 +254,5 @@ module.exports = SampleContract;
 
 ### Next step: Tutorial 5
 
-[Interacting with Nebulas by RPC API](05-interacting-with-nebulas-by-rpc-api.md)
+[Interacting with Carbon by RPC API](05-interacting-with-nebulas-by-rpc-api.md)
 

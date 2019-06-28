@@ -1,8 +1,6 @@
-# Nebulas 101 - 03 Write and run a smart contract
+# 101 - 03 Write and run a smart contract
 
-[YouTube Tutorial](https://www.youtube.com/watch?v=0ut_RcFyQGM)
-
-Through this tutorial we will learn how to write, deploy, and execute smart contracts in Nebulas.
+Through this tutorial we will learn how to write, deploy, and execute smart contracts in Carbon.
 
 ## Preparation
 
@@ -21,7 +19,7 @@ If who have doubts about the above content you should go back to the previous ch
 
 ## Write a smart contract
 
-Like Ethereum, Nebulas implements NVM virtual machines to run smart contracts, and the NVM implementation uses the JavaScript V8 engine, so for the current development we can write smart contracts using JavaScript and TypeScript.
+Like Ethereum, Carbon implements NVM virtual machines to run smart contracts, and the NVM implementation uses the JavaScript V8 engine, so for the current development we can write smart contracts using JavaScript and TypeScript.
 
 Write a brief specification of a smart contract:
 
@@ -209,7 +207,7 @@ takeout: function (value) {
 
 ## Deploy smart contracts
 
-The above describes how to write a smart contract in Nebulas, and now we need to deploy the smart contract to the chain. Earlier, we have introduced how to make a transaction in Nebulas, and we used the sendTransaction\(\) interface to initiate a transfer. Deploying a smart contract in Nebulas is actually achieved by sending a transaction by calling the sendTransaction\(\) interface, just with different parameters.
+The above describes how to write a smart contract in Carbon, and now we need to deploy the smart contract to the chain. Earlier, we have introduced how to make a transaction in Carbon, and we used the sendTransaction\(\) interface to initiate a transfer. Deploying a smart contract in Carbon is actually achieved by sending a transaction by calling the sendTransaction\(\) interface, just with different parameters.
 
 ```javascript
 // transaction - from, to, value, nonce, gasPrice, gasLimit, contract
@@ -255,7 +253,7 @@ The return value for deploying a smart contract is the transaction's hash addres
 
 ## Execute Smart Contract Method
 
-The way to execute a smart contract method in Nebulas is also straightforward, using the sendTransactionWithPassphrase\(\) method to invoke the smart contract method directly.
+The way to execute a smart contract method in Carbon is also straightforward, using the sendTransactionWithPassphrase\(\) method to invoke the smart contract method directly.
 
 ```javascript
 // transaction - from, to, value, nonce, gasPrice, gasLimit, contract
@@ -310,7 +308,7 @@ Execute the smart contract takeout\(\) method:
 
 ## Query Smart Contract Data
 
-In a smart contract, the execution of some methods won't change anything on chain. These methods are designed to help us query data in readonly mode from blockchains. In Nebulas, we provide an API `call` for users to execute these readonly methods.
+In a smart contract, the execution of some methods won't change anything on chain. These methods are designed to help us query data in readonly mode from blockchains. In Carbon, we provide an API `call` for users to execute these readonly methods.
 
 ```javascript
 // transaction - from, to, value, nonce, gasPrice, gasLimit, contract

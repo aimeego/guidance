@@ -1,20 +1,16 @@
-# Nebulas 101 - 02 Sending Transactions on Nebulas
+# 101 - 02 Sending Transactions on Carbon
 
-[Youtube Tutorial](https://www.youtube.com/watch?v=_Njq8LX2r-4)
-
-> For this portion of the tutorial we will pick up where we left off in the [Installation tutorial](https://github.com/nebulasio/nebdocs/blob/master/docs/go-nebulas/tutorials/01-installation.md).
-
-Nebulas provides three methods to send transactions：
+Carbon provides three methods to send transactions：
 
 1. Sign & Send
 2. Send with Passphrase
 3. Unlock & Send
 
-Here is an introduction to sending a transaction in Nebulas through the three methods above and verifying whether the transaction is successful.
+Here is an introduction to sending a transaction in Carbon through the three methods above and verifying whether the transaction is successful.
 
 ## Prepare Accounts
 
-In Nebulas, each address represents an unique account.
+In Carbon, each address represents an unique account.
 
 Prepare two accounts: an address to send tokens \(the sending address, called "from"\) and an address to receive the tokens \(the receiving address, called "to"\).
 
@@ -36,7 +32,7 @@ Address: n1SQe5d1NKHYFMKtJ5sNHPsSPVavGzW71Wy
 
 > When you run this command you will have a different wallet address with `n1FF1nz6tarkDVwWQkMnnwFPuPKUaQTdptE`. Please use your generated address as the receiver.
 
-The keystore file of the new wallet will be located in `$GOPATH/src/github.com/nebulasio/go-nebulas/keydir/`
+The keystore file of the new wallet will be located in `$GOPATH/src/github.com/carbonsink/go-carbon/go-carbon/keydir/`
 
 ## Start the Nodes
 
@@ -58,7 +54,7 @@ Secondly, start a miner node connecting to the seed node. This node will generat
 
 > **How long a new block will be minted?**
 >
-> In Nebulas, DPoS is chosen as the temporary consensus algorithm before Proof-of-Devotion\(PoD, described in [Technical White Paper](https://nebulas.io/docs/NebulasTechnicalWhitepaper.pdf)\) is ready. In this consensus algorithm, each miner will mint new block one by one every 15 seconds.
+> In Carbon, DPoS is chosen as the temporary consensus algorithm before Proof-of-Devotion\(PoD, described in [Technical White Paper](https://nebulas.io/docs/NebulasTechnicalWhitepaper.pdf)\) is ready. In this consensus algorithm, each miner will mint new block one by one every 15 seconds.
 >
 > In current context, we have to wait for 315\(=15\*21\) seconds to get a new block because there is only one miner among 21 miners defined in `conf/default/genesis.conf` working now.
 
@@ -66,9 +62,9 @@ Once a new block minted by the miner, the mining reward will be added to the coi
 
 ## Interact with Nodes
 
-Nebulas provides developers with HTTP API, gRPC API and CLI to interact with the running nodes. Here, we will share how to send a transaction in three methods with HTTP API \([API Module](https://github.com/nebulasio/wiki/blob/master/rpc.md) \| [Admin Module](https://github.com/nebulasio/wiki/blob/master/rpc_admin.md)\).
+Carbon provides developers with HTTP API, gRPC API and CLI to interact with the running nodes. Here, we will share how to send a transaction in three methods with HTTP API \([API Module](https://github.com/nebulasio/wiki/blob/master/rpc.md) \| [Admin Module](https://github.com/nebulasio/wiki/blob/master/rpc_admin.md)\).
 
-> The Nebulas HTTP Lisenter is defined in the node configuration. The default port of our seed node is `8685`.
+> The Carbon HTTP Lisenter is defined in the node configuration. The default port of our seed node is `8685`.
 
 At first, check the sender's balance before sending a transaction.
 
@@ -131,7 +127,7 @@ First, sign the transaction to get raw data.
 
 > **Note** Nonce is an very important attribute in a transaction. It's designed to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack). For a given account, only after its transaction with nonce N is accepted, will its transaction with nonce N+1 be processed. Thus, we have to check the latest nonce of the account on chain before preparing a new transaction.
 
-Then, send the raw data to an online Nebulas node.
+Then, send the raw data to an online Carbon node.
 
 ```bash
 > curl -i -H 'Content-Type: application/json' -X POST http://localhost:8685/v1/user/rawtransaction -d '{"data":"CiAbjMP5dyVsTWILfXL1MbwZ8Q6xOgX/JKinks1dpToSdxIaGVcH+WT/SVMkY18ix7SG4F1+Z8evXJoA35caGhlXbip8PupTNxwV4SRM87r798jXWADXpWngIhAAAAAAAAAAAA3gtrOnZAAAKAEwuKuC1wU6CAoGYmluYXJ5QGRKEAAAAAAAAAAAAAAAAAAPQkBSEAAAAAAAAAAAAAAAAAAehIBYAWJBVVuRHWSNY1e3bigbVKd9i6ci4f1LruDC7AUtXDLirHlsmTDZXqjSMGLio1ziTmxYJiLj+Jht5RoZxFKqFncOIQA="}'
@@ -141,9 +137,9 @@ Then, send the raw data to an online Nebulas node.
 
 #### Send with Passphrase
 
-If you trust a Nebulas node so much that you can delegate your keystore files to it, the second method is a good fit for you.
+If you trust a Carbon node so much that you can delegate your keystore files to it, the second method is a good fit for you.
 
-First, upload your keystore files to the keydir folders in the trusted Nebulas node.
+First, upload your keystore files to the keydir folders in the trusted Carbon node.
 
 Then, send the transaction with your passphrase.
 
@@ -157,9 +153,9 @@ Then, send the transaction with your passphrase.
 
 #### Unlock & Send
 
-This is the most dangerous method. You probably shouldn’t use it unless you have complete trust in the receiving Nebulas node.
+This is the most dangerous method. You probably shouldn’t use it unless you have complete trust in the receiving Carbon node.
 
-First, upload your keystore files to the keydir folders in the trusted Nebulas node.
+First, upload your keystore files to the keydir folders in the trusted Carbon node.
 
 Then unlock your accounts with your passphrase for a given duration in the node. The unit of the duration is nano seconds \(300000000000=300s\).
 
